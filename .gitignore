@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+THUCNews/
 build/
 develop-eggs/
 dist/
