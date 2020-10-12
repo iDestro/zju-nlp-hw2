@@ -5,7 +5,7 @@ Min = 1e9
 Max = 0
 
 
-with open('../THUCNews/data/test.txt', 'r', encoding='utf-8') as f:
+with open('../THUCNews/data/train.txt', 'r', encoding='utf-8') as f:
     count = 0
     tot = 0
     res = []

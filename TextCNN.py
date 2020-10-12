@@ -36,6 +36,7 @@ class Config(object):
         self.embedding_pretrained = embedding
         self.embed = self.embedding_pretrained.size(1)
 
+
 '''Convolutional Neural Networks for Sentence Classification'''
 
 
