@@ -20,11 +20,7 @@ zju-nlp-hw2
 
 ​	-THUCNews
 
-​		-data
-
-​		-log
-
-​		-saved_dict
+​	-aclImdb
 
 ​	-run.py
 
@@ -49,6 +45,17 @@ zju-nlp-hw2
 
 ### 四、运行
 
+#### 4.1 训练中文数据集
+
 ```bash
-python run.py
+python run.py --language zh
 ```
+
+
+
+#### 4.2训练英文数据集
+
+```bash
+python run.py --language en
+```
+

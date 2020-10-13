@@ -13,6 +13,7 @@ class Config(object):
         self.train_path = dataset + '/data/train.txt'                                # 训练集
         self.dev_path = dataset + '/data/dev.txt'                                    # 验证集
         self.test_path = dataset + '/data/test.txt'                                  # 测试集
+        self.word_vectors_path = dataset + '/data/word_vectors.pkl'
         self.class_list = [x.strip() for x in open(
             dataset + '/data/class.txt', encoding='utf-8').readlines()]              # 类别名单
         self.vocab_path = dataset + '/data/vocab.pkl'                                # 词表
@@ -20,7 +21,8 @@ class Config(object):
         self.log_path = dataset + '/log/' + self.model_name
         self.embedding_pretrained = None                   # 预训练词向量
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   # 设备
-
+        self.sen_len = 600
+        self.language = 'en' if dataset == './aclImdb' else 'zh'
         self.dropout = 0.5                                              # 随机失活
         self.require_improvement = 1000                                 # 若超过1000batch效果还没提升，则提前结束训练
         self.num_classes = len(self.class_list)                         # 类别数
