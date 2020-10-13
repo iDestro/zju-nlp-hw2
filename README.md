@@ -51,7 +51,9 @@ zju-nlp-hw2
 python run.py --language zh
 ```
 
-![](https://github.com/iDestro/zju-nlp-hw2/blob/main/result/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201014042303.png?raw=true)
+![](https://github.com/iDestro/zju-nlp-hw2/blob/main/result/zh_result.png?raw=true)
+
+
 
 #### 4.2训练英文数据集
 
@@ -59,5 +61,9 @@ python run.py --language zh
 python run.py --language en
 ```
 
-![](https://github.com/iDestro/zju-nlp-hw2/blob/main/result/1602613807(1).png?raw=true)
+![](https://github.com/iDestro/zju-nlp-hw2/blob/main/result/en_result.png?raw=true)
+
+
+
+
 
