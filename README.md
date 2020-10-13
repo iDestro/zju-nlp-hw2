@@ -18,30 +18,30 @@ IDE：Pycharm 2020.2
 
 zju-nlp-hw2
 
-​	-THUCNews
+​		-THUCNews
 
-​	-aclImdb
+​		-aclImdb
 
-​	-run.py
+​		-run.py
 
-​	-TextCNN.py
+​		-TextCNN.py
 
-​	-train_eval.py
+​		-train_eval.py
 
-​	-utils.py
+​		-utils.py
 
 ### 三、资源下载
 
-**THUCNews**文件夹由于过大，未上传至Github上托管。为了方便，放在百度网盘上方便下载。
+**aclImdb与THUCNews**文件夹由于过大，未上传至Github上托管。为了方便，放在百度网盘上方便下载。
 
 ------
 
-链接：https://pan.baidu.com/s/17_XpHOs6_sFDrbeWm3_Sfw 
+链接：https://pan.baidu.com/s/17RwAWKnrJgki2-6aK0mM3g 
 提取码：6666 
 
 -------
 
-将下载到的**THUCNews.zip**解压放在zju-nlp-hw2目录下即可。
+按目录结构，将下载到的**aclImdb与THUCNews**解压放在zju-nlp-hw2目录下即可。
 
 ### 四、运行
 
@@ -51,11 +51,13 @@ zju-nlp-hw2
 python run.py --language zh
 ```
 
-
+![](https://github.com/iDestro/zju-nlp-hw2/blob/main/result/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201014042303.png?raw=true)
 
 #### 4.2训练英文数据集
 
 ```bash
 python run.py --language en
 ```
+
+![](https://github.com/iDestro/zju-nlp-hw2/blob/main/result/1602613807(1).png?raw=true)
 
