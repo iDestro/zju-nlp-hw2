@@ -36,7 +36,7 @@ zju-nlp-hw2
 
 ------
 
-链接：https://pan.baidu.com/s/17RwAWKnrJgki2-6aK0mM3g 
+链接：https://pan.baidu.com/s/1dgwVABkH_RqzHDTDSP_lwQ 
 提取码：6666 
 
 -------
@@ -51,7 +51,6 @@ zju-nlp-hw2
 python run.py --language zh
 ```
 
-![](https://github.com/iDestro/zju-nlp-hw2/blob/main/result/zh_result.png?raw=true)
 
 
 
@@ -61,7 +60,6 @@ python run.py --language zh
 python run.py --language en
 ```
 
-![](https://github.com/iDestro/zju-nlp-hw2/blob/main/result/en_result.png?raw=true)
 
 
 
