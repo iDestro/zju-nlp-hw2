@@ -97,6 +97,7 @@ def test(config, model, test_iter):
     print("Time usage:", time_dif)
 
 
+# 预测测试集，生成混淆矩阵
 def evaluate(config, model, data_iter, test=False):
     model.eval()
     loss_total = 0

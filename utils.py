@@ -9,12 +9,17 @@ from torch.utils.data import Dataset, DataLoader
 class Preprocess():
     def __init__(self, config):
         self.config = config
+        # 截取一个文档的前sel_len作为训练样本
         self.sen_len = self.config.sen_len
+        # 用于保存词和索引的映射关系
         self.idx2word = None
         self.word2idx = None
+        # 保存类别标签
         self.categories = ['pos', 'neg'] if config.language == 'en' else ['体育', '财经', '房产', '家居', '教育', '科技', '时尚',
                                                                           '时政', '游戏', '娱乐']
+        # 保存类别到索引的映射
         self.cat_to_id = dict(zip(self.categories, range(len(self.categories))))
+        # 初始化词和索引的映射关系和载入词向量
         self.init_and_set_embedding()
 
     def init_and_set_embedding(self):
@@ -32,8 +37,8 @@ class Preprocess():
         print("total words: {}".format(len(embedding_matrix)))
         self.config.set_embedding(embedding_matrix)
 
+    # 将句子变成一样的长度
     def pad_sequence(self, sentence):
-        # 将句子变成一样的长度
         if len(sentence) > self.sen_len:
             sentence = sentence[:self.sen_len]
         else:
@@ -43,6 +48,7 @@ class Preprocess():
         assert len(sentence) == self.sen_len
         return sentence
 
+    # 讲句子变为索引序列
     def sentence_word2idx(self, sentences):
         sentence_list = []
         for i, sen in enumerate(sentences):
@@ -54,10 +60,12 @@ class Preprocess():
             sentence_list.append(sentence_idx)
         return torch.LongTensor(sentence_list)
 
+    # 标签向量化
     def labels_to_tensor(self, y):
         y = [self.cat_to_id[label] for label in y]
         return torch.LongTensor(y)
 
+    # 分别生成训练，验证和测试的Dataloader
     def get_iters(self):
         paths = [self.config.train_path, self.config.dev_path, self.config.test_path]
         iters = []
@@ -81,6 +89,7 @@ def get_time_dif(start_time):
     return timedelta(seconds=int(round(time_dif)))
 
 
+# 载入数据
 def load_data(path, language):
     if language == 'zh':
         start_index = 3
