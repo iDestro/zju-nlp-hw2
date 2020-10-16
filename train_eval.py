@@ -27,8 +27,11 @@ def init_network(model, method='xavier', exclude='embedding', seed=123):
 
 
 def train(config, model, train_iter, dev_iter, test_iter):
+    # 记录训练开始时间
     start_time = time.time()
+    # 把模型状态更改为训练状态，参数会变化
     model.train()
+    # 是用Adam进行梯度计算
     optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
 
     # 学习率指数衰减，每次epoch：学习率 = gamma * 学习率
@@ -54,13 +57,16 @@ def train(config, model, train_iter, dev_iter, test_iter):
                 predic = torch.max(outputs.data, 1)[1].cpu()
                 train_acc = metrics.accuracy_score(true, predic)
                 dev_acc, dev_loss = evaluate(config, model, dev_iter)
+                # 保存最好的模型
                 if dev_loss < dev_best_loss:
                     dev_best_loss = dev_loss
                     torch.save(model.state_dict(), config.save_path)
+                    # 给效果的提升的模型作标记
                     improve = '*'
                     last_improve = total_batch
                 else:
                     improve = ''
+                # 记录一个 batch 的花费的时间
                 time_dif = get_time_dif(start_time)
                 msg = 'Iter: {0:>6},  Train Loss: {1:>5.2},  Train Acc: {2:>6.2%},  Val Loss: {3:>5.2},  Val Acc: {4:>6.2%},  Time: {5} {6}'
                 print(msg.format(total_batch, loss.item(), train_acc, dev_loss, dev_acc, time_dif, improve))

@@ -22,6 +22,7 @@ class Preprocess():
         # 初始化词和索引的映射关系和载入词向量
         self.init_and_set_embedding()
 
+    # 获取索引到词，词到索引的映射，以及加载词向量矩阵
     def init_and_set_embedding(self):
         word2vec = pickle.load(open(self.config.word_vectors_path, 'rb'))
         self.idx2word = []
@@ -107,6 +108,7 @@ def load_data(path, language):
     return x, y
 
 
+# 文本数据类
 class TextDataset(Dataset):
     def __init__(self, X, y):
         self.data = X
